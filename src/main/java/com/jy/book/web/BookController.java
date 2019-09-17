@@ -67,6 +67,44 @@ public class BookController {
 
         return bookService.getBookSortByAsc();
     }
+    @GetMapping("/findBookAsc")
+    public List<Book> findBookSortByAsc(@RequestBody Book name){
+
+        return bookService.findBookSortByAsc(name.getName());
+    }
+    @GetMapping("/getBookDesc")
+    public List<Book> getBookSortByDesc(){
+
+        return bookService.getBookSortByDesc();
+    }
+
+    @GetMapping("/searchBookByName")
+    public List<Book> searchBookByName(@RequestBody Book book){
+        return bookService.searchBookByName(book.getName());
+    }
+
+
+    @GetMapping("/searchBookByPrice")
+    public List<Book> searchBookByPrice(@RequestBody Book book){
+        return bookService.searchBookByPrice(book.getPrice());
+    }
+
+    @GetMapping("/searchBookByPrice2")
+    public List<Book> searchBookByPrice(@RequestBody List<Book> book){
+
+        return bookService.searchBookByPrice(book.get(0).getPrice(),book.get(1).getPrice());
+    }
+    @GetMapping("/searchBookByPrice3")
+    public List<Book> searchBookByPrice3(@RequestBody List<Book> book){
+
+        return bookService.searchBookByPrice3(book.get(0).getPrice(),book.get(1).getPrice());
+    }
+    @GetMapping("/searchBookByNameAndPrice")
+    public List<Book> searchBookByNameAndPrice(@RequestBody List<Book> book){
+
+        return bookService.searchBookByPrice(book.get(0).getName(),book.get(1).getPrice());
+    }
+
 
 
     /*public List<Book> getLongNameBook(@RequestBody int nameCount){

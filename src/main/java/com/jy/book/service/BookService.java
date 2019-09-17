@@ -64,6 +64,33 @@ public class BookService {
       return  bookRepository.findAll(new Sort(Sort.Direction.ASC,"price"));
     }
 
+    public List<Book> getBookSortByDesc() {
+        return bookRepository.findAll(new Sort(Sort.Direction.DESC,"price"));
+    }
+
+    public List<Book> searchBookByName(String name) {
+        return bookRepository.findByName(name);
+    }
+
+    public List<Book> searchBookByPrice(double price) {
+        return bookRepository.findByPrice(price);
+    }
+
+    public List<Book> searchBookByPrice(double price,double price1) {
+        return bookRepository.findByPriceOrPrice(price,price1);
+    }
+
+    public List<Book> searchBookByPrice(String name,double price) {
+        return bookRepository.findByNameAndPrice(name,price);
+    }
+
+    public List<Book> findBookSortByAsc(String name) {
+        return bookRepository.findByNameOrderByPriceAsc(name);
+    }
+
+    public List<Book> searchBookByPrice3(double price, double price1) {
+        return bookRepository.findByPriceInSql(price,price1);
+    }
    /* public List<Book> getLongNameBook(int nameCount) {
 
     }*/
