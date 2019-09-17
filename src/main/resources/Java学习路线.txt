@@ -1,0 +1,49 @@
+
+
+1. jpa find by and or desc asc
+2. update不save是面向对象数据库的重要的改进—— 脏数据检测 hibernate
+3.    @M...
+不用他如何实现 (中间表)
+（1）@oneToOne
+（2）@OneToMany---List<Author>
+（3）@ManyToOne
+（3）@ManyToMany
+4. 使用注解
+
+class Book{
+	String name;
+	
+	@OneToOne（lazy casscad）
+	User owner;
+}
+
+1 笛卡儿集
+2 懒加载 -加载时机？
+3. 集合 List<String> ??
+
+90%
+
+
+
+create table teacher(
+id int primary key auto_increment,
+name varchar(20)
+on delete cascade
+on update cascade
+);
+
+create table book2author(
+id int primary key auto_increment,
+book_id int,
+author_id int,
+foreign key(book_id) references book(id)
+on delete cascade
+on update cascade,
+foreign key(author_id) references author(id)
+on delete cascade
+on update cascade,
+unique(book_id,author_id)
+);
+
+
+unique (1,2) ##意思就是联合唯一
