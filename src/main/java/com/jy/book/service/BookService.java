@@ -2,6 +2,8 @@ package com.jy.book.service;
 
 
 import com.jy.book.entity.Book;
+import com.jy.book.entity.BookNo;
+import com.jy.book.repository.BookNoRepository;
 import com.jy.book.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -17,6 +19,9 @@ public class BookService {
 
     @Autowired
     BookRepository bookRepository;
+
+    @Autowired
+    BookNoRepository bookNoRepository;
 
 
     public List<Book> getAllBook() {
@@ -90,6 +95,17 @@ public class BookService {
 
     public List<Book> searchBookByPrice3(double price, double price1) {
         return bookRepository.findByPriceInSql(price,price1);
+    }
+
+    public void addBookPro(Book book) {
+        System.out.println("=================");
+        System.out.println(book.toString());
+        System.out.println("=================");
+        bookRepository.save(book);
+    }
+
+    public void addBookPro(BookNo book) {
+        bookNoRepository.save(book);
     }
    /* public List<Book> getLongNameBook(int nameCount) {
 

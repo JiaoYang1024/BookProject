@@ -1,0 +1,5 @@
+自定义的repository接口,注解@Repository其实可有可无
+使用@OneToOne等等时，@OneToOne(cascade=CascadeType.All)这个必须有
+对应表的实体类里，构造方法不是必须的。对应的Repository也不是必须的。如果你不用的话
+
+实体类里必须有get/set方法，如果没有的话，添加不上数据。
