@@ -2,6 +2,7 @@ package com.jy.book.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 public class Book  {
@@ -19,8 +20,12 @@ public class Book  {
     @OneToOne(cascade = CascadeType.ALL)
     private BookNo bookNo; //OneToOne
 
+    //@JoinColumn(name = "bookTypess")
     @ManyToOne(cascade=CascadeType.ALL)
     private BookType bookType;
+
+    @ManyToMany(cascade=CascadeType.ALL)
+    private List<Author> authorList;
 
    /* public Book() {
     }
@@ -70,6 +75,14 @@ public class Book  {
 
     public void setBookType(BookType bookType) {
         this.bookType = bookType;
+    }
+
+    public List<Author> getAuthorList() {
+        return authorList;
+    }
+
+    public void setAuthorList(List<Author> authorList) {
+        this.authorList = authorList;
     }
 
     @Override

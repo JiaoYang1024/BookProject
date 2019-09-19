@@ -14,7 +14,7 @@
 9.Book findByName(String name);  如果有多个同名，是不是报错？
 反过来添加不行，只能用book类添加数据，不能用bookNo类添加数据，虽然第二种方式也会在两张表中插入数据，但book表的bookNoId
 字段没有值。意思是只能用主表的类来添加数据。详见addBookPro和addBookPro2。
-
+10.一对多，多对一，关联不起来。没有一的关系。会有重复值。比如两个小说
 
 4张表：
 

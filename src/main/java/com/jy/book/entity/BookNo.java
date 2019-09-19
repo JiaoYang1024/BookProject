@@ -17,10 +17,9 @@ public class BookNo  {
     private String publishDate;
 
 
-    // @OneToOne(mappedBy = "bookNo")
-    // @OneToOne(cascade = CascadeType.ALL)
+
+
     //没有book也行，只要book里有你就行
-   // @OneToOne(cascade = CascadeType.ALL, mappedBy = "bookNo")
     //@OneToOne(cascade = CascadeType.ALL)
    // @OneToOne(cascade = CascadeType.ALL, mappedBy = "bookNo")
    // private Book book;   //查询时出现了递归现象  //不加mappedBy，查询时，Book中的BookNo属性为null。加上了，会递归。

@@ -1,7 +1,9 @@
 package com.jy.book.web;
 
+import com.jy.book.entity.Author;
 import com.jy.book.entity.Book;
 import com.jy.book.entity.BookNo;
+import com.jy.book.service.AuthorService;
 import com.jy.book.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +18,9 @@ public class BookController {
 
     @Autowired
     BookService bookService;
+
+    @Autowired
+    AuthorService authorService;
 
     @GetMapping
     public List<Book> getAllBook(){
@@ -84,7 +89,7 @@ public class BookController {
         return bookService.searchBookByName(book.getName());
     }
 
-        /*开始
+
     @GetMapping("/searchBookByPrice")
     public List<Book> searchBookByPrice(@RequestBody Book book){
         return bookService.searchBookByPrice(book.getPrice());
@@ -104,7 +109,7 @@ public class BookController {
     public List<Book> searchBookByNameAndPrice(@RequestBody List<Book> book){
 
         return bookService.searchBookByPrice(book.get(0).getName(),book.get(1).getPrice());
-    }  结尾*/
+    }
 
     /*public List<Book> getLongNameBook(@RequestBody int nameCount){
 
@@ -113,22 +118,21 @@ public class BookController {
 
     @PostMapping("/addBook")
     public String addBookPro(@RequestBody Book book){
-        System.out.println("------------------");
-        System.out.println(book.toString());
-        System.out.println("-------------------");
-
         bookService.addBookPro(book);
         return "add success";
     }
 
     @PostMapping("/addBook2")
     public String addBookPro2(@RequestBody BookNo book){
-        System.out.println("------------------");
-        System.out.println(book.toString());
-        System.out.println("-------------------");
-
         bookService.addBookPro(book);
         return "add success";
+    }
+
+    @GetMapping("/getBooksByAuthor")
+    public List<Book> getBooksByAuthor(@RequestBody Author author){
+
+        return authorService.getBooksByAuthor(author.getName());
+
     }
 
 
