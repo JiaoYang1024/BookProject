@@ -21,9 +21,11 @@ public class Book  {
     private BookNo bookNo; //OneToOne
 
     //@JoinColumn(name = "bookTypess")
+    @JoinColumn(referencedColumnName = "id")
     @ManyToOne(cascade=CascadeType.ALL)
     private BookType bookType;
 
+    //@JoinTable(name="bookAuthorRelation",joinColumns={@JoinColumn(name="bookId")},inverseJoinColumns={@JoinColumn(name="authorId")})
     @ManyToMany(cascade=CascadeType.ALL)
     private List<Author> authorList;
 

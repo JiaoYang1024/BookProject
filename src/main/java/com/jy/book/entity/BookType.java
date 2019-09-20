@@ -6,15 +6,15 @@ import java.util.List;
 @Entity
 public class BookType {
 
+   // @GeneratedValue
     @Id
-    @GeneratedValue
     private Long id;
 
     private String typeName;
 
     private String typeFeature;
 
-    //@OneToMany(cascade= CascadeType.ALL,mappedBy = "bookType")  //
+    //@OneToMany(cascade= CascadeType.ALL,mappedBy = "bookType")  //查询时递归
     //private List<Book> bookList;
 
     public BookType() {
